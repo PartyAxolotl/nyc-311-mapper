@@ -1,0 +1,37 @@
+{
+    "name": "party_finder",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack serve --mode development",
+        "build": "webpack --mode production",
+        "lint": "eslint './src/**/*.{js,jsx}'"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.16.0",
+        "@babel/plugin-proposal-class-properties": "^7.14.5",
+        "@babel/preset-env": "^7.16.0",
+        "@babel/preset-react": "^7.16.0",
+        "babel-loader": "^8.2.3",
+        "css-loader": "^6.5.1",
+        "eslint": "^8.39.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-jsx-a11y": "^6.7.1",
+        "eslint-plugin-react": "^7.32.2",
+        "html-webpack-plugin": "^5.5.0",
+        "path": "^0.12.7",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.62.1",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.5.0"
+    }
+}

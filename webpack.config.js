@@ -1,54 +1,112 @@
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  entry: './src/index.jsx',
-  output: {
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/',
-    filename: 'main.js',
-  },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ],
-            plugins: [
-              '@babel/plugin-proposal-class-properties',
-            ],
-          },
+    entry: './client/index.js',
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js',
+        publicPath: '/'
+    },
+    mode: 'development', //(process.env.NODE_ENV),
+    module: {
+        rules: [
+            {
+                test: /\.jsx?/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    }
+                }
+            },
+            {
+                test: /\.s?[ac]ss/,
+                use: [
+                    // MiniCssExtractPlugin.loader best for production
+                    'style-loader', // best for dev
+                    'css-loader', // resolve all css into single string
+                    'sass-loader' // transpile sass/scss into css
+                ]  
+            }
+        ]
+
+    },
+    devServer: {
+        historyApiFallback: true,
+        // static: {
+            // publicPath: 'build', localhost:8080/assets
+            // directory: path.join(__dirname, 'build')
+        // }
+        // port: 8080,
+        port: 8080,
+        proxy: {
+            '/api': 'http://localhost:3000/'
         },
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
+        hot: true,
+    },
+    plugins: [
+        new HtmlWebpackPlugin({ // install and require
+            template: './index.html'
+        }),
     ],
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'public'),
-    compress: true,
-    port: 9000,
-    historyApiFallback: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'public/index.html',
-      filename: 'index.html',
-      inject: 'body',
-    }),
-  ],
-};
+
+}
+
+
+
+// const path = require('path');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+// module.exports = {
+//   entry: './src/index.jsx',
+//   output: {
+//     path: path.resolve(__dirname, 'public'),
+//     publicPath: '/',
+//     filename: 'main.js',
+//   },
+//   resolve: {
+//     extensions: ['.js', '.jsx'],
+//   },
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: 'babel-loader',
+//           options: {
+//             presets: [
+//               '@babel/preset-env',
+//               '@babel/preset-react',
+//             ],
+//             plugins: [
+//               '@babel/plugin-proposal-class-properties',
+//             ],
+//           },
+//         },
+//       },
+//       {
+//         test: /\.css$/,
+//         use: ['style-loader', 'css-loader'],
+//       },
+//     ],
+//   },
+//   devServer: {
+//     contentBase: path.join(__dirname, 'public'),
+//     compress: true,
+//     port: 9000,
+//     historyApiFallback: true,
+//   },
+//   plugins: [
+//     new HtmlWebpackPlugin({
+//       template: 'public/index.html',
+//       filename: 'index.html',
+//       inject: 'body',
+//     }),
+//   ],
+// };
 
 
 

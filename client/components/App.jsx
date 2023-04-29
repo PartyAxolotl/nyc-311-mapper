@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import MapPage from './Pages/MapPage.jsx';
 
 function App() {
   return(
-    <h1>hi</h1>
+    <div>
+      <h1>Yoo</h1>  
+      <MapPage />
+    </div>
   )
 }
 

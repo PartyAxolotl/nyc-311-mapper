@@ -1,0 +1,27 @@
+
+const mongoose = require('mongoose');
+
+console.log('in the model')
+
+//const MONGO_URI = 'mongodb+srv://ariellin980:pxDasmXc2qtNEpYG@starwarsunit10.utvou5c.mongodb.net/?retryWrites=true&w=majority';
+const MONGO_URI = 'mongodb+srv://rhaasti:5qSk4tdRcwnZAOq4@partyanimals.1gzhkiq.mongodb.net/?retryWrites=true&w=majority';
+
+mongoose.connect(MONGO_URI, {
+    // options for the connect method to parse the URI
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    // sets the name of the DB that our collections are part of
+})
+    .then(() => console.log('Connected to Mongo DB.'))
+    .catch(err => console.log(err));
+
+const Schema = mongoose.Schema;
+
+const partySchema = new Schema({
+    name: { type: String },
+    location: { type: String }
+})
+
+const Party = mongoose.model('Party', partySchema)
+
+module.exports = Party

@@ -3,37 +3,37 @@ const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    entry: './client/index.js',
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
-        publicPath: '/'
-    },
-    mode: 'development', //(process.env.NODE_ENV),
-    module: {
-        rules: [
-            {
-                test: /\.jsx?/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                    }
-                }
-            },
-            {
-                test: /\.s?[ac]ss/,
-                use: [
-                    // MiniCssExtractPlugin.loader best for production
-                    'style-loader', // best for dev
-                    'css-loader', // resolve all css into single string
-                    'sass-loader' // transpile sass/scss into css
-                ]  
-            }
-        ]
+  entry: './client/index.js',
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/'
+  },
+  mode: 'development', //(process.env.NODE_ENV),
+  module: {
+    rules: [
+      {
+        test: /\.jsx?/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          }
+        }
+      },
+      {
+        test: /\.s?[ac]ss/,
+        use: [
+          // MiniCssExtractPlugin.loader best for production
+          'style-loader', // best for dev
+          'css-loader', // resolve all css into single string
+          'sass-loader' // transpile sass/scss into css
+        ]  
+      }
+    ]
 
-    },
+  },
     devServer: {
         historyApiFallback: true,
         // static: {
@@ -55,6 +55,7 @@ module.exports = {
     ],
 
 }
+
 
 
 

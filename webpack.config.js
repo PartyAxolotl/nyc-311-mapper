@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
     entry: './client/index.js',
@@ -50,6 +51,7 @@ module.exports = {
         new HtmlWebpackPlugin({ // install and require
             template: './index.html'
         }),
+        new Dotenv()
     ],
 
 }

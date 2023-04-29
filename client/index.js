@@ -4,7 +4,7 @@ import App from './components/App.jsx';
 import { StrictMode } from 'react';
 
 // uncomment so that webpack can bundle styles
-// import styles from './style/application.scss';
+import styles from './style/application.scss';
 
 const container = document.getElementById('root')
 const root = createRoot(container)

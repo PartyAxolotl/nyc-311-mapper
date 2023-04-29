@@ -3,7 +3,8 @@ const { validateHeaderName } = require('http');
 const app = express();
 const path = require('path');
 // const db = require('../models')
-const models = require('../models/partyModel');
+const controllers = require('../controllers/partyController');
+
 
 const PORT = 3000
 

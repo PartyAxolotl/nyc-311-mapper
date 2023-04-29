@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './client/index.js',
@@ -33,24 +34,26 @@ module.exports = {
     ]
 
   },
-  devServer: {
-    historyApiFallback: true,
-    // static: {
-    // publicPath: 'build', localhost:8080/assets
-    // directory: path.join(__dirname, 'build')
-    // }
-    // port: 8080,
-    port: 8080,
-    proxy: {
-      '/api': 'http://localhost:3000/'
+    devServer: {
+        historyApiFallback: true,
+        // static: {
+            // publicPath: 'build', localhost:8080/assets
+            // directory: path.join(__dirname, 'build')
+        // }
+        // port: 8080,
+        port: 8080,
+        proxy: {
+            '/api': 'http://localhost:3000/'
+        },
+        hot: true,
     },
-    hot: true,
-  },
-  plugins: [
-    new HtmlWebpackPlugin({ // install and require
-      template: './index.html'
-    }),
-  ],
+    plugins: [
+        new HtmlWebpackPlugin({ // install and require
+            template: './index.html'
+        }),
+        new Dotenv()
+    ],
+
 }
 
 

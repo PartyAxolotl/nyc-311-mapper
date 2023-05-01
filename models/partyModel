@@ -25,8 +25,6 @@ const partySchema = new Schema({
     longitude: { type: String }
 })
 
-const Party = mongoose.model('Party', partySchema)
-
 module.exports = Party
 
 

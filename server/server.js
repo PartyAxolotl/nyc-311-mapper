@@ -8,7 +8,6 @@ const path = require('path');
 const DbController = require('../controllers/partyController')
 console.log('server.js')
 
-
 const PORT = 3000
 
 app.use(express.json());

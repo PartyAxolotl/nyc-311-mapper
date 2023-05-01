@@ -7,7 +7,6 @@ import { BrowserRouter, Route, Routes, Switch } from "react-router-dom";
 function App() {
   return (
     <div>
-      <h1>Yoo</h1>
       <MainPage/>
     </div>
   );

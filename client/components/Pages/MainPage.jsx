@@ -49,23 +49,23 @@ function MainPage(props) {
       <form onSubmit={handleSubmit}>
         <label htmlFor="boroughBox">Show me party spots in </label>
         <select id="boroughSelect">
-          <option value="Manhattan">Manhattan</option>
-          <option value="Brooklyn">Brooklyn</option>
-          <option value="The Bronx">The Bronx</option>
-          <option value="Queens">Queens</option>
-          <option value="Staten Island">Staten Island</option>
-          <option value="All">ALL OF NYC!!!</option>
+          <option value="MANHATTAN">Manhattan</option>
+          <option value="BROOKLYN">Brooklyn</option>
+          <option value="BRONX">The Bronx</option>
+          <option value="QUEENS">Queens</option>
+          <option value="STATENISLAND">Staten Island</option>
+          <option value="ALL">ALL OF NYC!!!</option>
         </select>
         <label htmlFor="daySelect"> on </label>
         <select id="daySelect">
-          <option value="Monday">Mondays.</option>
-          <option value="Tuesday">Tuesdays.</option>
-          <option value="Wednesday">Wednesdays.</option>
-          <option value="Thursday">Thursdays.</option>
-          <option value="Friday">FRIDAYS!</option>
-          <option value="Saturday">SATURDAYS!</option>
-          <option value="Sunday">Sundays?</option>
-          <option value='allDays'>ALL WEEK!!!</option>
+          <option value="MON">Mondays.</option>
+          <option value="TUE">Tuesdays.</option>
+          <option value="WED">Wednesdays.</option>
+          <option value="THU">Thursdays.</option>
+          <option value="FRI">FRIDAYS!</option>
+          <option value="SAT">SATURDAYS!</option>
+          <option value="SUN">Sundays?</option>
+          <option value='ALL'>ALL WEEK!!!</option>
         </select>
         <button type="submit" form="form1" value="Submit">
           Go!

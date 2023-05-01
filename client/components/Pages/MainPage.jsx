@@ -56,30 +56,58 @@ function MainPage(props) {
   // otherwise return the contents of MainPage.
   return (
     <>
-      <h1>Main Page</h1>
+      <div id="pfHeader">
+        <h1 id="mainPage">PartyFinder</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <label htmlFor="boroughBox">Show me party spots in </label>
-        <select id="boroughSelect" onChange={(e) => setBorough(e.target.value)}>
-          <option value="MANHATTAN">Manhattan</option>
-          <option value="BROOKLYN">Brooklyn</option>
-          <option value="BRONX">The Bronx</option>
-          <option value="QUEENS">Queens</option>
-          <option value="STATENISLAND">Staten Island</option>
-          <option value="ALL">ALL OF NYC!!!</option>
-        </select>
-        <label htmlFor="daySelect"> on </label>
-        <select id="daySelect" onChange={(e) => setDay(e.target.value)}>
-          <option value="1">Mondays.</option>
-          <option value="2">Tuesdays.</option>
-          <option value="3">Wednesdays.</option>
-          <option value="4">Thursdays.</option>
-          <option value="5">FRIDAYS!</option>
-          <option value="6">SATURDAYS!</option>
-          <option value="0">Sundays?</option>
-        </select>
-        <input type="submit" value="GO" />
+        <div id="formLine">
+          <label htmlFor="boroughBox">Show me party spots in </label>
+          <select
+            id="boroughSelect"
+            className="dropDownBoxes"
+            onChange={(e) => setBorough(e.target.value)}
+          >
+            <option value="MANHATTAN">Manhattan</option>
+            <option value="BROOKLYN">Brooklyn</option>
+            <option value="BRONX">The Bronx</option>
+            <option value="QUEENS">Queens</option>
+            <option value="STATENISLAND">Staten Island</option>
+            <option value="ALL">ALL OF NYC!!!</option>
+          </select>
+          <label htmlFor="daySelect"> on </label>
+          <select
+            id="daySelect"
+            className="dropDownBoxes"
+            onChange={(e) => setDay(e.target.value)}
+          >
+            <option value="1">Mondays.</option>
+            <option value="2">Tuesdays.</option>
+            <option value="3">Wednesdays.</option>
+            <option value="4">Thursdays.</option>
+            <option value="5">FRIDAYS!</option>
+            <option value="6">SATURDAYS!</option>
+            <option value="0">Sundays?</option>
+          </select>
+          <input id='goButton' type="submit" value=" GO " />
+        </div>
       </form>
-      <button onClick={() => setShowMap(true)}>Test Button</button>
+
+      <div id="overlay"></div>
+      <div id="hey">
+        <div id="layer-up"></div>
+      </div>
+      <div id="layer-0">
+        <div id="layer-1">
+          <div id="layer-2">
+            <div id="lines">
+              <div id="layer-corner"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mtnZZZ"></div>
     </>
   );
 }

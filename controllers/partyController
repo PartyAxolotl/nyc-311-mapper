@@ -25,12 +25,14 @@ async function callToAPI() {
                 latitude: record.latitude,
                 longitude: record.longitude
             })
-        })
+                .catch((error) => {
+                    console.log('eror in create() .. likely a duplicate');
+                });
+        });
     }
-    catch {
-        console.log('error in API call')
+    catch (error) {
+        console.log('error in API call');
     }
 }
 
 callToAPI();
-

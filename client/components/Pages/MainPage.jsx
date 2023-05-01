@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 // button also need to change state so it reveals the map component.
 
 function MainPage(props) {
+  const [showMap, setShowMap] = useState(false);
   const [partySpots, setPartySpots] = useState([]);
 
   const handleSubmit = (event) => {
@@ -29,14 +30,19 @@ function MainPage(props) {
       .then((res) => res.json())
       .then((data) => {
         setPartySpots(data);
+        setShowMap(true);
       })
       .catch((error) => {
         console.error("Error fetching party spots:", error);
       });
   }
 
-  
+  // if showMap is true, return MapPage component.
+  if (showMap) {
+    return <MapPage partySpots={partySpots} />
+  }
 
+  // otherwise return the contents of MainPage.
   return (
     <>
       <h1>Main Page</h1>

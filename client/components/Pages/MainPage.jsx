@@ -5,6 +5,8 @@ import MapPage from "./MapPage.jsx"
 // button also need to change state so it reveals the map component.
 
 function MainPage(props) {
+  const [borough, setBorough] = useState("MANHATTAN")
+  const [day, setDay] = useState('1')
   
   const [showMap, setShowMap] = useState(false);
   const [partySpots, setPartySpots] = useState([]);
@@ -16,8 +18,11 @@ function MainPage(props) {
     setShowMap(true);
 
     // extract value from form.
-    const borough = event.target.boroughSelect.value;
-    const day = event.target.day.value;
+    // const borough = event.currentTarget.boroughSelect.value;
+    // const day = event.currentTarget.day.value;
+
+    console.log(day)
+    console.log(borough)
 
     // construct the request body.
     const requestBody = {
@@ -34,6 +39,7 @@ function MainPage(props) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data)
         setPartySpots(data);
         setShowMap(true);
       })
@@ -53,7 +59,7 @@ function MainPage(props) {
       <h1>Main Page</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="boroughBox">Show me party spots in </label>
-        <select id="boroughSelect">
+        <select id="boroughSelect" onChange={(e) => setBorough(e.target.value)}>
           <option value="MANHATTAN">Manhattan</option>
           <option value="BROOKLYN">Brooklyn</option>
           <option value="BRONX">The Bronx</option>
@@ -62,7 +68,7 @@ function MainPage(props) {
           <option value="ALL">ALL OF NYC!!!</option>
         </select>
         <label htmlFor="daySelect"> on </label>
-        <select id="daySelect">
+        <select id="daySelect" onChange={(e) => setDay(e.target.value)}>
           <option value="1">Mondays.</option>
           <option value="2">Tuesdays.</option>
           <option value="3">Wednesdays.</option>

@@ -8,6 +8,7 @@ const DbController = {}
   DbController.findByBoroughAndDay = (req, res, next) => {
     console.log("inside findByBoroughAndDay")
 
+
     Party.find({borough: req.body.borough, createdDate: req.body.day})
     .then((locations) => {
       res.locals.locations = locations
@@ -17,6 +18,7 @@ const DbController = {}
   },
 
   DbController.testGet = (req, res, next) => {
+
     res.locals.message = "res.body on testGet"
     console.log("testGet")
     return next()
@@ -25,22 +27,22 @@ const DbController = {}
       return next(err)
     }
     next()
-  }
 
-// module.exports = DbController;
+  }
 
 async function callToAPI() {
 
 
-    try {
-        console.log('in the try block')
-        const response = await fetch("https://data.cityofnewyork.us/resource/erm2-nwe9.json?descriptor='Loud Music/Party'&$limit=1000&$select=unique_key,created_date,incident_address,incident_zip,borough,descriptor,complaint_type,latitude,longitude&$$app_token=h1WcLxGB20iLGSrjy1z7bt3Kn");
+     try {
+         console.log('in the try block')
+         const response = await fetch("https://data.cityofnewyork.us/resource/erm2-nwe9.json?descriptor='Loud Music/Party'&$limit=1000&$select=unique_key,created_date,incident_address,incident_zip,borough,descriptor,complaint_type,latitude,longitude&$$app_token=h1WcLxGB20iLGSrjy1z7bt3Kn");
 
-        const data = await response.json();
-        data.forEach((record) => {
-            const date = new Date(record.created_date)
-            date.setHours(date.getHours() - 6) // Subtracts 6 hours from complaint time, added by Curtis.
-            const day = date.getDay()
+         const data = await response.json();
+         data.forEach((record) => {
+             const date = new Date(record.created_date)
+             date.setHours(date.getHours() - 6) // Subtracts 6 hours from complaint time, added by Curtis.
+             const day = date.getDay()
+
 
             Party.create({
                 uniqueKey: record.unique_key,

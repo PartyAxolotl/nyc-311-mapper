@@ -7,6 +7,7 @@ const DbController = {}
   
   DbController.findByBoroughAndDay = (req, res, next) => {
     console.log("inside findByBoroughAndDay")
+
     Party.find({borough: req.body.borough, createdDate: req.body.day})
     .then((locations) => {
       res.locals.locations = locations
@@ -19,6 +20,7 @@ const DbController = {}
     res.locals.message = "res.body on testGet"
     console.log("testGet")
     return next()
+
     if (err) {
       return next(err)
     }

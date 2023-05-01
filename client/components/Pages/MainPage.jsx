@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
+import MapPage from "./MapPage.jsx"
 
 // submit button sends request to server, then app receives the data and stores as props app component and passing it to maps
 // button also need to change state so it reveals the map component.
 
 function MainPage(props) {
+  
   const [showMap, setShowMap] = useState(false);
   const [partySpots, setPartySpots] = useState([]);
+  console.log('showMap', showMap);
 
   const handleSubmit = (event) => {
+    console.log('HANDLER')
     event.preventDefault();
+    setShowMap(true);
 
     // extract value from form.
-    const borough = event.target.value.boroughSelect.value;
-    const day = event.target.value.day.value;
+    const borough = event.target.boroughSelect.value;
+    const day = event.target.day.value;
 
     // construct the request body.
     const requestBody = {
@@ -58,19 +63,17 @@ function MainPage(props) {
         </select>
         <label htmlFor="daySelect"> on </label>
         <select id="daySelect">
-          <option value="MON">Mondays.</option>
-          <option value="TUE">Tuesdays.</option>
-          <option value="WED">Wednesdays.</option>
-          <option value="THU">Thursdays.</option>
-          <option value="FRI">FRIDAYS!</option>
-          <option value="SAT">SATURDAYS!</option>
-          <option value="SUN">Sundays?</option>
-          <option value='ALL'>ALL WEEK!!!</option>
+          <option value="1">Mondays.</option>
+          <option value="2">Tuesdays.</option>
+          <option value="3">Wednesdays.</option>
+          <option value="4">Thursdays.</option>
+          <option value="5">FRIDAYS!</option>
+          <option value="6">SATURDAYS!</option>
+          <option value="0">Sundays?</option>
         </select>
-        <button type="submit" form="form1" value="Submit">
-          Go!
-        </button>
+        <input type="submit" value="GO" />
       </form>
+      <button onClick={() => setShowMap(true)}>Test Button</button>
     </>
   );
 }

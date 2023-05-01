@@ -39,6 +39,7 @@ async function callToAPI() {
                 complaintType: record.complaint_type,
                 latitude: record.latitude,
                 longitude: record.longitude
+            // }).catch(err)
             }).catch((err) => console.log('error'))
         })
     }
@@ -53,16 +54,23 @@ callToAPI();
 const DbController = {}
   
 DbController.findByBoroughAndDay = (req, res, next) => {
-  console.log("inside findByBoroughAndDay")
-
-
-  Party.find({borough: req.body.borough, createdDate: req.body.day})
-  .then((locations) => {
+  if (req.body.borough === "all") {
+    Party.find({createdDate: req.body.day})
+    .then((locations) => {
+      res.locals.locations = locations
+      return next()
+    })
+    .catch((err) => console.log(err))
+  }
+  else {
+    Party.find({borough: req.body.borough, createdDate: req.body.day})
+    .then((locations) => {
     res.locals.locations = locations
     return next()
-  })
-  .catch((err) => console.log(err))
-},
+    })
+    .catch((err) => console.log(err))
+  }
+}
 
 
 module.exports = DbController;

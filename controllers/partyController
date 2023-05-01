@@ -1,1 +1,26 @@
+const fetch = require('node-fetch');
 const models = require('../models/partyModel');
+
+console.log('in the controller');
+
+async function callToAPI() {
+
+    try {
+        console.log('in the try block')
+        const response = await fetch("https://data.cityofnewyork.us/resource/erm2-nwe9.json?descriptor='Loud Music/Party'&$limit=2000&$select=unique_key,created_date,incident_zip,borough,descriptor,latitude,longitude&$$app_token=h1WcLxGB20iLGSrjy1z7bt3Kn");
+
+        const data = await response.json();
+        console.log(data);
+    }
+    catch {
+        console.log('error in API call')
+
+
+    }
+}
+
+callToAPI();
+
+
+
+

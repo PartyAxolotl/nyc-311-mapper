@@ -19,11 +19,11 @@ app.use('/', express.static(path.join(__dirname, '../index.html')))
 
 //post request to database for borough and day
 app.post('/party/party-spots', DbController.findByBoroughAndDay, (req, res) => {
-  res.status(200).json(res.locals);
+  res.status(200).json(res.locals.locations);
 });
 
 app.get('/party/party-spots', DbController.testGet, (req, res) => {
-  res.status(202).send(res.body.message)
+  res.status(202).send(res.locals.message)
 })
 
 

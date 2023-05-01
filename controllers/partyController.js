@@ -4,19 +4,6 @@ const Party = require('../models/partyModel');
 console.log('in the controller');
 
 
-  // DbController.testGet = (req, res, next) => {
-
-  //   res.locals.message = "res.body on testGet"
-  //   console.log("testGet")
-  //   return next()
-
-  //   if (err) {
-  //     return next(err)
-  //   }
-  //   next()
-
-  // }
-
 async function callToAPI() {
      try {
          console.log('in the try block')

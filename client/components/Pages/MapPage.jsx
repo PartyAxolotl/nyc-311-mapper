@@ -8,7 +8,7 @@ function MapPage(props){
 const [selectedMarker, setSelectedMarker] = useState(null);
 const [address, setAddress] = useState('')
 
-console.log(props.partySpots)
+console.log(address)
 
   const markers = props.partySpots.map((marker, id) => {
     
@@ -33,34 +33,6 @@ console.log(props.partySpots)
   }
   })
 
-// if(props.partySpots.complaintType === "Noise - Residential"){
-//     residentialMarkers = props.partySpots.map((marker, id) => {
-    
-//     const latitude = Number(marker.latitude);
-//     const longitude = Number(marker.longitude);
-
-//     return <MarkerF position={{ lat: latitude, lng: longitude }} icon={                             
-//       url= "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
-//     }
-//     onClick={() => {
-//       setAddress(marker.incidentAddress)
-//       setSelectedMarker({ lat: latitude, lng: longitude })} 
-//     }/>
-//   })
-// } else {
-//     commercialMarkers = props.partySpots.map((marker) => {
-//     const latitude = Number(marker.latitude);
-//     const longitude = Number(marker.longitude);
-//     return <MarkerF position={{ lat: latitude, lng: longitude }} onClick={() => {
-//       setAddress(marker.incidentAddress)
-//       setSelectedMarker({ lat: latitude, lng: longitude })} 
-//     }/>
-//   })
-// }
-
-// console.log('residential markers', commercialMarkers)
-
-// const markers = residentialMarkers.concat(commercialMarkers)
 
   
 
@@ -170,9 +142,10 @@ console.log(props.partySpots)
                       setSelectedMarker(null);
                     }}
                     position={selectedMarker}
+                    
                 >
-                  <div>
-                  <h3>{address}</h3>
+                  <div className='infoWindow'>
+                  <h3 className='address'>Target party location: {address}</h3>
                 </div>
                 </InfoWindow>
               )}

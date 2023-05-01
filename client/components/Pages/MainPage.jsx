@@ -10,10 +10,8 @@ function MainPage(props) {
   
   const [showMap, setShowMap] = useState(false);
   const [partySpots, setPartySpots] = useState([]);
-  console.log('showMap', showMap);
 
   const handleSubmit = (event) => {
-    console.log('HANDLER')
     event.preventDefault();
     setShowMap(true);
 
@@ -21,8 +19,7 @@ function MainPage(props) {
     // const borough = event.currentTarget.boroughSelect.value;
     // const day = event.currentTarget.day.value;
 
-    console.log(day)
-    console.log(borough)
+
 
     // construct the request body.
     const requestBody = {
@@ -39,7 +36,6 @@ function MainPage(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setPartySpots(data);
         setShowMap(true);
       })

@@ -19,6 +19,4 @@ const partySchema = new Schema({
     location: { type: String }
 })
 
-const Party = mongoose.model('Party', partySchema)
-
 module.exports = Party

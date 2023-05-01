@@ -3,6 +3,29 @@ const Party = require('../models/partyModel');
 
 console.log('in the controller');
 
+const DbController = {}
+  
+  DbController.findByBoroughAndDay = (req, res, next) => {
+    console.log("inside findByBoroughAndDay")
+    models.find({borough: req.body.borough, day: req.body.day}, (err, locations) => {
+      if (err) {
+        return next(console.log(err, "error in findByBurough controller"));
+      }
+      return next();
+    })
+  },
+
+  DbController.testGet = (req, res, next) => {
+    res.body = "res.body on testGet"
+    console.log("testGet")
+    if (err) {
+      return next(err)
+    }
+    next()
+  }
+
+// module.exports = DbController;
+
 async function callToAPI() {
 
 
@@ -13,6 +36,7 @@ async function callToAPI() {
         const data = await response.json();
         data.forEach((record) => {
             const date = new Date(record.created_date)
+            date.setHours(date.getHours() - 6) // Subtracts 6 hours from complaint time, added by Curtis.
             const day = date.getDay()
 
             Party.create({
@@ -36,18 +60,6 @@ async function callToAPI() {
 
 callToAPI();
 
-
-const DbController = {
-  
-  findByBoroughAndDay: (req, res, next) => {
-    models.find({borough: req.body.borough, day: req.body.day}, (err, locations) => {
-      if (err) {
-        return next(console.log(err, "error in findByBurough controller"));
-      }
-      return next();
-    })
-  }
-}
 
 module.exports = DbController;
 

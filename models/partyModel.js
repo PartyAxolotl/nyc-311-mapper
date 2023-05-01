@@ -10,12 +10,8 @@ mongoose.connect(MONGO_URI, {
     .then(() => console.log('Connected to Mongo DB.'))
     .catch(err => console.log(err));
 
-
-// const Schema = mongoose.Schema;
-
 const Party = mongoose.model('Party', mongoose.Schema({
 
-// const partySchema = new Schema({
     uniqueKey: { type: String, unique: true },
     createdDate: { type: String },
     incidentAddress: { type: String },

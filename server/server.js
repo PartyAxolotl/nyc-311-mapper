@@ -23,9 +23,6 @@ app.post('/party/party-spots', DbController.findByBoroughAndDay, (req, res) => {
   res.status(200).json(res.locals.locations);
 });
 
-// app.get('/party/party-spots', DbController.testGet, (req, res) => {
-//   res.status(202).send(res.locals.message)
-// })
 
 
 app.listen(PORT, () => { console.log(`Listening on port ${PORT}...`); });

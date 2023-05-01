@@ -43,7 +43,7 @@ module.exports = {
         // port: 8080,
         port: 8080,
         proxy: {
-            '/api': 'http://localhost:3000/'
+            '/party': 'http://localhost:3000/'
         },
         hot: true,
     },

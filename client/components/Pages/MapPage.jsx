@@ -1,10 +1,33 @@
-import { useLoadScript, MarkerF, GoogleMap } from '@react-google-maps/api';
+import { useLoadScript, MarkerF, GoogleMap, InfoWindow } from '@react-google-maps/api';
 import React, { useMemo, useState, useEffect } from 'react';
 // const dotenv = require('dotenv')
 // dotenv.config();
 
 
 function MapPage(props){ 
+const [selectedMarker, setSelectedMarker] = useState(null);
+// const [markers, setMarkers] = useState([])
+
+// useEffect(() => {
+//   async function fetchData(){
+//     data = await fetch('/party/mapData', {
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     })
+
+//     const toJson = await data.json()
+
+//     setMarkers(toJson)
+//   }
+//   fetchData()
+// }, [])
+
+  const handleClick = () => {
+    console.log('hi')
+  }
+
+
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_API_KEY
         ,
@@ -19,10 +42,24 @@ function MapPage(props){
             <GoogleMap
               mapContainerClassName="map-container"
               center={center}
-              zoom={11}
+              zoom={15}
             >
-
-              <MarkerF position={{ lat: 40.7505, lng: -73.9934 }}/>
+              {selectedMarker && (
+                <InfoWindow
+                    onCloseClick={() => {
+                      setSelectedMarker(null);
+                    }}
+                    position={selectedMarker}
+                >
+                  <div>
+                  <h3>party time</h3>
+                </div>
+                </InfoWindow>
+              )}
+              {/* {markers.map(marker => {
+                <MarkerF key='marker.id' position={{ lat: marker.latitude, lng: marker.longitude }}></MarkerF>
+              })} */}
+              <MarkerF position={{ lat: 40.730610, lng: -73.935242 }} onClick={() => setSelectedMarker({ lat: 40.730610, lng: -73.935242 })} />
             </GoogleMap>
           )}
         </div>

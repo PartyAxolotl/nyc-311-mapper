@@ -6,7 +6,7 @@ import MapPage from "./MapPage.jsx"
 
 function MainPage(props) {
   const [borough, setBorough] = useState("MANHATTAN")
-  const [day, setDay] = useState('0')
+  const [day, setDay] = useState('1')
   
   const [showMap, setShowMap] = useState(false);
   const [partySpots, setPartySpots] = useState([]);

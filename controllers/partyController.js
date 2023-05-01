@@ -7,17 +7,20 @@ const DbController = {}
   
   DbController.findByBoroughAndDay = (req, res, next) => {
     console.log("inside findByBoroughAndDay")
-    models.find({borough: req.body.borough, day: req.body.day}, (err, locations) => {
-      if (err) {
-        return next(console.log(err, "error in findByBurough controller"));
-      }
-      return next();
+
+    Party.find({borough: req.body.borough, createdDate: req.body.day})
+    .then((locations) => {
+      res.locals.locations = locations
+      return next()
     })
+    .catch((err) => console.log(err))
   },
 
   DbController.testGet = (req, res, next) => {
-    res.body = "res.body on testGet"
+    res.locals.message = "res.body on testGet"
     console.log("testGet")
+    return next()
+
     if (err) {
       return next(err)
     }
@@ -49,7 +52,7 @@ async function callToAPI() {
                 complaintType: record.complaint_type,
                 latitude: record.latitude,
                 longitude: record.longitude
-            })
+            }).catch((err) => console.log('error'))
         })
     }
     catch {

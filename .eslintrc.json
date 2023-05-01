@@ -1,5 +1,7 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "eslint:recommended",
+    "plugin:react/recommended"],
+    
   "parserOptions": {
     "ecmaVersion": 2021,
     "sourceType": "module",
@@ -14,8 +16,13 @@
   },
   "rules": {
     // Add any custom rules here
-    "semi": ["error", "always"]
-  }
+    "semi": ["error", "always"],
+    "import/rule-name": "error",
+    "node/rule-name": "error",
+    "promise/rule-name": "error",
+    "react/jsx-uses-react": "error"
+  },
+  "plugins": ["import", "node", "promise", "react"]
 }
 
 

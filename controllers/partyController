@@ -34,10 +34,3 @@ async function callToAPI() {
 
 callToAPI();
 
-
-
-
-
-
-// run API on load .. check for unique IDs in the database .. do this in the controller .. 
-// save to database .. should add on top of existing data each time .. do this in the controller .. 

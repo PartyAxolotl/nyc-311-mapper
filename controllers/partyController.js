@@ -41,7 +41,7 @@ callToAPI();
 const DbController = {}
   
 DbController.findByBoroughAndDay = (req, res, next) => {
-  if (req.body.borough === "all") {
+  if (req.body.borough === "ALL") {
     Party.find({createdDate: req.body.day})
     .then((locations) => {
       res.locals.locations = locations

@@ -6,6 +6,9 @@ import React, { useMemo, useState, useEffect } from 'react';
 
 function MapPage(props){ 
 const [selectedMarker, setSelectedMarker] = useState(null);
+const [address, setAddress] = useState('')
+
+console.log(props.partySpots)
 // const [markers, setMarkers] = useState([])
 
 // useEffect(() => {
@@ -27,6 +30,64 @@ const [selectedMarker, setSelectedMarker] = useState(null);
     console.log('hi')
   }
 
+  // let residentialMarkers = []
+  // let commercialMarkers = []
+
+  const markers = props.partySpots.map((marker, id) => {
+    
+    const latitude = Number(marker.latitude);
+    const longitude = Number(marker.longitude);
+
+    if(marker.complaintType === "Noise - Residential"){
+    return <MarkerF position={{ lat: latitude, lng: longitude }} icon={                             
+      "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    }
+    onClick={() => {
+      setAddress(marker.incidentAddress)
+      setSelectedMarker({ lat: latitude, lng: longitude })} 
+    }/>
+  } else {
+    return <MarkerF position={{ lat: latitude, lng: longitude }} icon={                             
+      "http://maps.google.com/mapfiles/ms/icons/red-dot.png"}
+    onClick={() => {
+      setAddress(marker.incidentAddress)
+      setSelectedMarker({ lat: latitude, lng: longitude })} 
+    }/>
+  }
+  })
+
+// if(props.partySpots.complaintType === "Noise - Residential"){
+//     residentialMarkers = props.partySpots.map((marker, id) => {
+    
+//     const latitude = Number(marker.latitude);
+//     const longitude = Number(marker.longitude);
+
+//     return <MarkerF position={{ lat: latitude, lng: longitude }} icon={                             
+//       url= "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+//     }
+//     onClick={() => {
+//       setAddress(marker.incidentAddress)
+//       setSelectedMarker({ lat: latitude, lng: longitude })} 
+//     }/>
+//   })
+// } else {
+//     commercialMarkers = props.partySpots.map((marker) => {
+//     const latitude = Number(marker.latitude);
+//     const longitude = Number(marker.longitude);
+//     return <MarkerF position={{ lat: latitude, lng: longitude }} onClick={() => {
+//       setAddress(marker.incidentAddress)
+//       setSelectedMarker({ lat: latitude, lng: longitude })} 
+//     }/>
+//   })
+// }
+
+// console.log('residential markers', commercialMarkers)
+
+// const markers = residentialMarkers.concat(commercialMarkers)
+
+  
+
+
 
     const { isLoaded } = useLoadScript({
         googleMapsApiKey: process.env.REACT_APP_API_KEY
@@ -42,7 +103,7 @@ const [selectedMarker, setSelectedMarker] = useState(null);
             <GoogleMap
               mapContainerClassName="map-container"
               center={center}
-              zoom={15}
+              zoom={11}
             >
               {selectedMarker && (
                 <InfoWindow
@@ -52,14 +113,11 @@ const [selectedMarker, setSelectedMarker] = useState(null);
                     position={selectedMarker}
                 >
                   <div>
-                  <h3>party time</h3>
+                  <h3>{address}</h3>
                 </div>
                 </InfoWindow>
               )}
-              {/* {markers.map(marker => {
-                <MarkerF key='marker.id' position={{ lat: marker.latitude, lng: marker.longitude }}></MarkerF>
-              })} */}
-              <MarkerF position={{ lat: 40.730610, lng: -73.935242 }} onClick={() => setSelectedMarker({ lat: 40.730610, lng: -73.935242 })} />
+              {markers}
             </GoogleMap>
           )}
         </div>

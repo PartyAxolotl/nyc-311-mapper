@@ -20,7 +20,6 @@ const DbController = {}
     res.locals.message = "res.body on testGet"
     console.log("testGet")
     return next()
-
     if (err) {
       return next(err)
     }

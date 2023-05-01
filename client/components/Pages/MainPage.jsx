@@ -50,7 +50,7 @@ function MainPage(props) {
   // otherwise return the contents of MainPage.
   return (
     <>
-      <h1>Main Page</h1>
+      <h1 id="mainPage">Main Page</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="boroughBox">Show me party spots in </label>
         <select id="boroughSelect">
@@ -74,6 +74,8 @@ function MainPage(props) {
         <input type="submit" value="GO" />
       </form>
       <button onClick={() => setShowMap(true)}>Test Button</button>
+      
+      
     </>
   );
 }

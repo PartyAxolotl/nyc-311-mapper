@@ -7,9 +7,9 @@ function App() {
   return (
     <div>
       <h1>Yoo</h1>
-      <Routes>
-        <Route path="/" element={<MainPage />}>
-        <Route path="/map" element={<MapPage />} />
+      <Routes> 
+        <Route path="/" element={<MapPage />}>
+        <Route path="/map" element={<MainPage />} />
         </Route>
       </Routes>
     </div>

@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+[
+  <div
+    id="pfHeader"
+  >
+    <h1
+      id="mainPage"
+    >
+      PartyFinder
+    </h1>
+  </div>,
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      id="formLine"
+    >
+      <label
+        htmlFor="boroughBox"
+      >
+        Show me party spots in 
+      </label>
+      <select
+        className="dropDownBoxes"
+        id="boroughSelect"
+        onChange={[Function]}
+      >
+        <option
+          value="MANHATTAN"
+        >
+          Manhattan
+        </option>
+        <option
+          value="BROOKLYN"
+        >
+          Brooklyn
+        </option>
+        <option
+          value="BRONX"
+        >
+          The Bronx
+        </option>
+        <option
+          value="QUEENS"
+        >
+          Queens
+        </option>
+        <option
+          value="STATENISLAND"
+        >
+          Staten Island
+        </option>
+        <option
+          value="ALL"
+        >
+          ALL OF NYC!!!
+        </option>
+      </select>
+      <label
+        htmlFor="daySelect"
+      >
+         on 
+      </label>
+      <select
+        className="dropDownBoxes"
+        id="daySelect"
+        onChange={[Function]}
+      >
+        <option
+          value="1"
+        >
+          Mondays.
+        </option>
+        <option
+          value="2"
+        >
+          Tuesdays.
+        </option>
+        <option
+          value="3"
+        >
+          Wednesdays.
+        </option>
+        <option
+          value="4"
+        >
+          Thursdays.
+        </option>
+        <option
+          value="5"
+        >
+          FRIDAYS!
+        </option>
+        <option
+          value="6"
+        >
+          SATURDAYS!
+        </option>
+        <option
+          value="0"
+        >
+          Sundays?
+        </option>
+      </select>
+      <input
+        id="goButton"
+        type="submit"
+        value=" GO "
+      />
+    </div>
+  </form>,
+  <div
+    id="overlay"
+  />,
+  <div
+    id="hey"
+  >
+    <div
+      id="layer-up"
+    />
+  </div>,
+  <div
+    id="layer-0"
+  >
+    <div
+      id="layer-1"
+    >
+      <div
+        id="layer-2"
+      >
+        <div
+          id="lines"
+        >
+          <div
+            id="layer-corner"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    id="mtnZZZ"
+  />,
+]
+`;
+
+exports[`MainPage renders correctly 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Loading...
+  </h1>
+</div>
+`;
+
+exports[`MapPage renders correctly 1`] = `<div />`;

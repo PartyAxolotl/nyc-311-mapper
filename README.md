@@ -4,21 +4,21 @@ The NYC 311 Mapper App allows the user to render interactive points onto their o
 
 Key Features
 
-    Landing Page for the NYC 311 Mapper with data customizable by day of week.
-    Rendering of custom Google Map based on user input.
-    Interactive data points within Google Map. 
+    → Landing Page for the NYC 311 Mapper with data customizable by day of week.
+    → Rendering of custom Google Map based on user input.
+    → Interactive data points within Google Map. 
 
 
 Upcoming Features
 
-    Access to any 311 topic within the NYC Open Data API.
+    → Access to any 311 topic within the NYC Open Data API.
 
 
 Built With:
 
-    React
-    Express.js
-    MongoDB
+    → React
+    → Express.js
+    → MongoDB
 
 
 Contributors
